@@ -44,7 +44,7 @@ RESPOND_TO_DIRECT_MESSAGE=TRUE
 # Wrap the entire collection in quotation marks, separate each keyword with a comma - case insensitive
 # Letters and numbers only, no spaces or special characters
 # Ex: "pickles, bears"
-RESPONSE_KEYWORDS=""
+RESPONSE_KEYWORDS="IA, ia, AI, ai, bot, Bot, love, honey, fucker, him, it"
 
 # Emojis in a message can be made into reactions from your companion on the message that triggered the companion message
 # Enable by setting EMOJI_TO_REACT to TRUE. Set to FALSE to disable.

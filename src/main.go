@@ -5,12 +5,29 @@ import (
     "log"
     "os"
     "sync"
+    "net/http"	
 )
 
 func main() {
     fmt.Println(Banner)
     fmt.Println("Version: " + Version)
     fmt.Println("Help, info, contact: github.com/d3tourrr/NomiKin-Discord")
+    
+    port := os.Getenv("PORT")
+
+    if port == "" {
+       port = "10000" 
+    }
+	
+	go func() {
+		log.Printf("Servidor HTTP de saúde iniciado na porta %s...", port)
+		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte("OK"))
+		})
+		log.Fatal(http.ListenAndServe(":"+port, nil))
+	}()
+
 
     if os.Getenv("NOMIKINLOGGING") == "verbose" {
         Verbose = true

@@ -10,6 +10,7 @@ COPY src/ /app/src/
 COPY bots/ /app/bots/
 
 WORKDIR /app/src
+EXPOSE 10000
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/main .
 
 FROM alpine:latest
